@@ -19,7 +19,7 @@ var box1selected = false;
 var box2selected = false;
 var reLoadCompound = false;
 function preload(){
-  bg=loadAnimation("images/bg.png");
+  bg=loadImage("images/bg.png");
   whitepage=loadImage("images/whitepage1.jpg");
   Na2O=loadImage("images/Na2O.jpg");
 water=loadImage("images/water.gif");
@@ -31,6 +31,7 @@ HCl=loadImage("images/HCl.jpg");
 CuCl2=loadImage("images/CuCl2 with other halogens.jpg");
 FeCl3=loadImage("images/FeCl3 .jpg");
 NaCl=loadImage("images/NaCl.jpg");
+
   coins=loadImage("images/coin.jpg");
     periot=loadImage("images/periodic ta ww.png");
     track=loadImage("images/road.png");
@@ -54,8 +55,8 @@ NaCl=loadImage("images/NaCl.jpg");
     bgcover=loadImage("images/bgcover.jpg");
 
 
-
-    /*Hy=loadAnimation("images/Hydrogen.jpg");
+/*if(1==1){
+    Hy=loadImage("images/Hydrogen.jpg");
 //group 1
     Li=loadImage("images/Lithium.jpg");
     Sodium=loadImage("images/Sodium.jpg");
@@ -70,7 +71,7 @@ NaCl=loadImage("images/NaCl.jpg");
     Sr=loadImage("images/Sr.jpg");
     Ba=loadImage("images/Ba.jpg");
     Ra=loadImage("images/Ra.jpg");
-    Hd=loadAnimation("images/Hd.jpg");
+    Hd=loadImage("images/Hd.jpg");
 
  //group3
     Sc=loadImage("images/Sc.jpg");
@@ -171,6 +172,7 @@ Kr=loadImage("images/Kr.jpg");
 Rn=loadImage("images/Rn.jpg");
 Og=loadImage("images/Og.jpg");
 Lid=loadImage("images/Lid.jpg")
+}
 */
 }
 
@@ -184,18 +186,114 @@ rightgroup=new Group();
  
 
 m=createSprite(mouseX,mouseY,1,1);
+
+       pertab=createButton("GO TO PERIODIC TABLE")
+        pertab.position(displayWidth/2-100,displayHeight/2);
+       pertab.style('width', '200px');
+       pertab.style('height', '40px');
+        pertab.style('background', 'lightpink');
+
+        react=createButton("GO TO REACTION CENTRE")
+        react.position(displayWidth/2-100,displayHeight/2-200);
+        react.style('width', '200px');
+        react.style('height', '40px');
+        react.style('background', 'lightpink');
+
+        back2=createButton("REFRESH")
+  back2.position(displayWidth/3,displayHeight/13)
+  back2.style('width','70px');
+  back2.style('height','40px');
+  back2.style('background','yellow');
+
+  back=createButton("BACK")
+  back.position(displayWidth/6,displayHeight/13)
+  back.style('width','70px');
+  back.style('height','40px');
+  back.style('background','yellow');
+
+      game=createButton("GO TO THE GAME")
+      game.position(displayWidth/2-100,displayHeight/2-100);
+      game.style('width', '200px');
+      game.style('height', '40px');
+      game.style('background', 'lightpink');
+ creategame1();
  
+}
+function creategame1(){
+  Hydrogen=createSprite(100,displayHeight/10);
+  Hydrogen.addImage(H);
+  Hydrogen.scale=0.2;
+  Hydrogen1=createSprite(displayWidth/1.07,displayHeight/10);
+  Hydrogen1.addImage(H);
+  Hydrogen1.scale=0.2;
+  
+  oxygen2=createSprite(displayWidth/1.07,displayHeight/5);
+  oxygen2.addImage(O);
+  oxygen2.scale=0.2;
+  oxygen=createSprite(100,displayHeight/5,30,30);
+  oxygen.addImage(O);
+  oxygen.scale=0.2;
+  
+  Iron=createSprite(100,displayHeight/3.3);
+  Iron.addImage(Fer);
+  Iron.scale=0.2;
+  Iron2=createSprite(displayWidth/1.07,displayHeight/3.3);
+  Iron2.addImage(Fer);
+  Iron2.scale=0.2;
+  
+  sodium=createSprite(100,displayHeight/2.45);
+  sodium.addImage(Na);
+  sodium.scale=0.2;
+  sodium2=createSprite(displayWidth/1.07,displayHeight/2.45);
+  sodium2.addImage(Na);
+  sodium2.scale=0.2;
+  
+  chlo=createSprite(100,displayHeight/1.95);
+  chlo.addImage(Cl);
+  chlo.scale=0.2;
+  chlo2=createSprite(displayWidth/1.07,displayHeight/1.95);
+  chlo2.addImage(Cl);
+  chlo2.scale=0.2;
+  
+  copper=createSprite(100,displayHeight/1.62);
+  copper.addImage(Cup);
+  copper.scale=0.2;
+  copper2=createSprite(displayWidth/1.07,displayHeight/1.62);
+  copper2.addImage(Cup);
+  copper2.scale=0.2;
+  
+  alum=createSprite(100,displayHeight/1.38,30,30);
+  alum.addImage(Alu);
+  alum.scale=0.2;
+  alum2=createSprite(displayWidth/1.07,displayHeight/1.38);
+  alum2.addImage(Alu);
+  alum2.scale=0.2;
+  
+  
+  //console.log(mouseX);
+  //console.log(mouseY);
+  leftgroup.add(Hydrogen);
+  leftgroup.add(oxygen);
+  leftgroup.add(Iron);
+  leftgroup.add(chlo);
+  leftgroup.add(alum);
+  leftgroup.add(copper);
+  leftgroup.add(sodium);
+  
+  rightgroup.add(Hydrogen1);
+  rightgroup.add(oxygen2);
+  rightgroup.add(Iron2);
+  rightgroup.add(chlo2);
+  rightgroup.add(alum2);
+  rightgroup.add(copper2);
+  rightgroup.add(sodium2);
+  
 }
 function initializeGameOne()
 {
 
   background("white");
- 
-  back2=createButton("REFRESH")
-  back2.position(displayWidth/3,displayHeight/13)
-  back2.style('width','70px');
-  back2.style('height','40px');
-  back2.style('background','yellow');
+ showgame1();
   
   
   Box1=createSprite(displayWidth/2-30,displayHeight/10,100,80);
@@ -207,118 +305,86 @@ function initializeGameOne()
   Box1.debug = true
   Box2.setCollider("rectangle",0,0,100,80)
   Box2.debug = true
-Hydrogen=createSprite(100,displayHeight/10);
-Hydrogen.addImage(H);
-Hydrogen.scale=0.2;
-Hydrogen1=createSprite(displayWidth/1.07,displayHeight/10);
-Hydrogen1.addImage(H);
-Hydrogen1.scale=0.2;
-
-oxygen2=createSprite(displayWidth/1.07,displayHeight/5);
-oxygen2.addImage(O);
-oxygen2.scale=0.2;
-oxygen=createSprite(100,displayHeight/5,30,30);
-oxygen.addImage(O);
-oxygen.scale=0.2;
-
-Iron=createSprite(100,displayHeight/3.3);
-Iron.addImage(Fer);
-Iron.scale=0.2;
-Iron2=createSprite(displayWidth/1.07,displayHeight/3.3);
-Iron2.addImage(Fer);
-Iron2.scale=0.2;
-
-sodium=createSprite(100,displayHeight/2.45);
-sodium.addImage(Na);
-sodium.scale=0.2;
-sodium2=createSprite(displayWidth/1.07,displayHeight/2.45);
-sodium2.addImage(Na);
-sodium2.scale=0.2;
-
-chlo=createSprite(100,displayHeight/1.95);
-chlo.addImage(Cl);
-chlo.scale=0.2;
-chlo2=createSprite(displayWidth/1.07,displayHeight/1.95);
-chlo2.addImage(Cl);
-chlo2.scale=0.2;
-
-copper=createSprite(100,displayHeight/1.62);
-copper.addImage(Cup);
-copper.scale=0.2;
-copper2=createSprite(displayWidth/1.07,displayHeight/1.62);
-copper2.addImage(Cup);
-copper2.scale=0.2;
-
-alum=createSprite(100,displayHeight/1.38,30,30);
-alum.addImage(Alu);
-alum.scale=0.2;
-alum2=createSprite(displayWidth/1.07,displayHeight/1.38);
-alum2.addImage(Alu);
-alum2.scale=0.2;
-
-
-//console.log(mouseX);
-//console.log(mouseY);
-leftgroup.add(Hydrogen);
-leftgroup.add(oxygen);
-leftgroup.add(Iron);
-leftgroup.add(chlo);
-leftgroup.add(alum);
-leftgroup.add(copper);
-leftgroup.add(sodium);
-
-rightgroup.add(Hydrogen1);
-rightgroup.add(oxygen2);
-rightgroup.add(Iron2);
-rightgroup.add(chlo2);
-rightgroup.add(alum2);
-rightgroup.add(copper2);
-rightgroup.add(sodium2);
+//  Hydrogen.visible=true;
+ //Hydrogen1.visible=true;
 
 }
+function showgame1(){
+  Hydrogen.visible=true;
+  Hydrogen1.visible=true;
+  oxygen.visible=true;
+  oxygen2.visible=true;
+  alum.visible=true;
+  alum2.visible=true;
+  sodium.visible=true;
+  sodium2.visible=true;
+  copper.visible=true;
+  copper2.visible=true;
+  chlo.visible=true;
+  chlo2.visible=true;
+  Iron.visible=true;
+  Iron2.visible=true;
+}
+function hidegame1(){
+  Hydrogen.visible=false;
+  Hydrogen1.visible=false;
+  oxygen.visible=false;
+  oxygen2.visible=false;
+  alum.visible=false;
+  alum2.visible=false;
+  sodium.visible=false;
+  sodium2.visible=false;
+  copper.visible=false;
+  copper2.visible=false;
+  chlo.visible=false;
+  chlo2.visible=false;
+  Iron.visible=false;
+  Iron2.visible=false;
 
+}
+/*function hidegame2(){
+  H.visible=false;
+  Lit.visible=false;
+  Sod.visible=false;
+ Rubidium.visible=false;
+  Pot.visible=false;
+  Cesium.visible=false;
+  fr
+
+}*/
 function draw(){
     //console.log(gamest);
-    back=createButton("BACK")
-    back.position(displayWidth/6,displayHeight/13)
-    back.style('width','70px');
-    back.style('height','40px');
-    back.style('background','yellow');
+   
     back.mousePressed(gamest0);
-   if(gamest==0){
+    if(gamest==0){
         background(bgcover);
-        pertab=createButton("GO TO PERIODIC TABLE")
-        pertab.position(displayWidth/2-100,displayHeight/2);
-       pertab.style('width', '200px');
-       pertab.style('height', '40px');
-        pertab.style('background', 'lightpink');
+        
        pertab.mousePressed(gamest2)
-            
-      react=createButton("GO TO REACTION CENTRE")
-      react.position(displayWidth/2-100,displayHeight/2-200);
-      react.style('width', '200px');
-      react.style('height', '40px');
-      react.style('background', 'lightpink');
+       back.hide();
+       back2.hide();
+     
       react.mousePressed(gamest1)
 
-      game=createButton("GO TO THE GAME")
-      game.position(displayWidth/2-100,displayHeight/2-100);
-      game.style('width', '200px');
-      game.style('height', '40px');
-      game.style('background', 'lightpink');
+      gameoneLoaded=false;
       game.mousePressed(gamest3)
            
         
     }
     if(gamest==1 && !gameoneLoaded){
    initializeGameOne();
-   game.hide();
-  pertab.hide();
-  react.hide();
+   react.hide();
+    game.hide();
+    pertab.hide();
+    back.show();
+    back2.show();
+     //game.hide();
+  //game.style('display','none');
+  //pertab.style('display','none');
    gameoneLoaded = true;
     drawSprites();
+ 
     }
-function refreshCompund()
+function refreshCompound()
 {
 
 Hydrogen.x=100;
@@ -361,7 +427,7 @@ image(whitepage,displayWidth/2,displayHeight/3);
     {
 
 
-      if(back2.mousePressed(refreshCompund))
+      if(back2.mousePressed(refreshCompound))
       {
 
       
@@ -369,7 +435,7 @@ image(whitepage,displayWidth/2,displayHeight/3);
 
      for(var i1=0;i1<leftgroup.length;i1++){
         if(mousePressedOver(leftgroup.get(i1))){
-          gamest=9;
+         gamest=9;
            leftgroup.get(i1).position.x=Box1.position.x;
            leftgroup.get(i1).position.y=Box1.position.y;
            box1selected= true;
@@ -398,67 +464,59 @@ if((box1selected && box2selected) || reLoadCompound)
   box2selected = false;
   box1selected = false;
 
-if((((Box1.x-alum.x<Box1.width/2+alum.width/2)&&(Box2.x-oxygen2.x<Box2.width/2+oxygen2.width/2)))
-  ||(((Box1.x-oxygen.x<Box1.width/2+oxygen.width/2)&&(Box2.x-alum2.x<Box2.width/2+alum2.width/2)))){
-  
- 
+if(alum.x==Box1.x&&oxygen2.x==Box2.x||(oxygen.x==Box1.x&&alum2.x==Box2.x)){
+
 image(Al2O3,displayWidth/4,displayHeight/5);
 console.log("al2o3");
- 
 
-} if((((Box2.x-oxygen2.x<Box2.width/2+oxygen2.width/2)&&(Box1.x-Hydrogen.x<Box1.width/2+Hydrogen.width/2)))
-  ||(((Box1.x-oxygen.x<Box1.width/2+oxygen.width/2)&&(Box2.x-Hydrogen1.x<Box2.width/2+Hydrogen1.width/2)))){
- 
+}
+if(Hydrogen.x==Box1.x&&oxygen2.x==Box2.x||(oxygen.x==Box1.x&&Hydrogen1.x==Box2.x)){
+
   image(water2,displayWidth/4,displayHeight/5);
   console.log("water");
 }  
- if((((Box2.x-oxygen2.x<Box2.width/2+oxygen2.width/2)&&(Box1.x-sodium.x<Box1.width/2+sodium.width/2)))
-  ||(((Box1.x-oxygen.x<Box1.width/2+oxygen.width/2)&&(Box2.x-sodium2.x<Box2.width/2+sodium2.width/2)))){
-  
+if(sodium.x==Box1.x&&chlo2.x==Box2.x||(chlo.x==Box1.x&&sodium2.x==Box2.x)){
+ 
+image(NaCl,displayWidth/4,displayHeight/5);
+console.log("nacl");
+
+
+}
+if(sodium.x==Box1.x&&oxygen2.x==Box2.x||(oxygen.x==Box1.x&&sodium2.x==Box2.x)){
+
   image(Na2O,displayWidth/4,displayHeight/5)
   console.log("na2o");
  
-}      
-if((((Box1.x-copper.x<Box1.width/2+copper.width/2)&&(Box2.x-oxygen2.x<Box2.width/2+oxygen2.width/2)))
-||(((Box1.x-oxygen.x<Box1.width/2+oxygen.width/2)&&(Box2.x-copper2.x<Box2.width/2+copper2.width/2)))){
-  
-image(CuO,displayWidth/4,displayHeight/5);
-console.log("cuo");
- 
+}    
+if(copper.x==Box1.x&&oxygen2.x==Box2.x||(copper2.x==Box2.x&&oxygen.x==Box1.x)){
+  image(CuO,displayWidth/4,displayHeight/3);
+  console.log("cuo")
 }  
-if((((Box2.x-oxygen2.x<Box2.width/2+oxygen2.width/2)&&(Box1.x-Iron.x<Box1.width/2+Iron.width/2)))
-||(((Box1.x-oxygen.x<Box1.width/2+oxygen.width/2)&&(Box2.x-Iron2.x<Box2.width/2+Iron2.width/2)))){
+if(copper.x==Box1.x&&chlo2.x==Box2.x||(copper2.x==Box2.x&&chlo.x==Box1.x)){
+  image(CuCl2,displayWidth/4,displayHeight/3);
+  console.log("cucl2");
+}
+
+
+if(Iron.x==Box1.x&&oxygen2.x==Box2.x||(Iron2.x==Box2.x&&oxygen.x==Box1.x)){
  
 image(Ironoxide,displayWidth/4,displayHeight/5);
 console.log("ironoxide");
  
 }  
-if((((Box2.x-chlo2.x<Box2.width/2+chlo2.width/2)&&(Box1.x-copper.x<Box1.width/2+copper.width/2)))
-||(((Box1.x-chlo.x<Box1.width/2+chlo.width/2)&&(Box2.x-copper2.x<Box2.width/2+copper2.width/2)))){
- image(CuCl2,displayWidth/4,displayHeight/5);
-console.log("cucl2");
- 
-}  
-if((((Box2.x-chlo2.x<Box2.width/2+chlo2.width/2)&&(Box1.x-Hydrogen.x<Box1.width/2+Hydrogen.width/2)))
-||(((Box1.x-chlo.x<Box1.width/2+chlo.width/2)&&(Box2.x-Hydrogen1.x<Box2.width/2+Hydrogen1.width/2)))){
+
+if(Hydrogen.x==Box1.x&&chlo2.x==Box2.x||(chlo.x==Box1.x&&Hydrogen1.x==Box2.x)){
 image(HCl,displayWidth/4,displayHeight/5);
 console.log("hcl");
-  
+   
 }
 
-if((((Box2.x-chlo2.x<Box2.width/2+chlo2.width/2)&&(Box1.x-sodium.x<Box1.width/2+sodium.width/2)))
-||(((Box1.x-chlo.x<Box1.width/2+chlo.width/2)&&(Box2.x-sodium2.x<Box2.width/2+sodium2.width/2)))){
-image(NaCl,displayWidth/4,displayHeight/5);
-console.log("nacl");
-  
-}
-if((((Box2.x-chlo2.x<Box2.width/2+chlo2.width/2)&&(Box1.x-Iron.x<Box1.width/2+Iron.width/2)))
-||(((Box1.x-chlo.x<Box1.width/2+chlo.width/2)&&(Box2.x-Iron2.x<Box2.width/2+Iron2.width/2)))){
+
+if(Iron.x==Box1.x&&chlo2.x==Box2.x||(chlo.x==Box1.x&&Iron2.x==Box2.x)){
   image(FeCl3,displayWidth/4,displayHeight/5);
 console.log("fecl3");
 }
-if((((Box2.x-chlo2.x<Box2.width/2+chlo2.width/2)&&(Box1.x-alum.x<Box1.width/2+alum.width/2)))
-||(((Box1.x-chlo.x<Box1.width/2+chlo.width/2)&&(Box2.x-alum2.x<Box2.width/2+alum2.width/2)))){
+if(alum.x==Box1.x&&chlo2.x==Box2.x||(chlo.x==Box1.x&&alum2.x==Box2.x)){
   
 console.log("alcl3");
 }
@@ -474,48 +532,46 @@ drawSprites();
 
 if(gamest==2){
     background(65,68,94);
+   
     react.hide();
     game.hide();
     pertab.hide();
- 
-   
+    hidegame1();
+    back.show();
+   gameoneLoaded=false;
+    
    d=createSprite(displayWidth/2,displayHeight/2,100,100);
    d.visible=false;
 
     H=createSprite(displayWidth/2,displayHeight/10);
-    H.addAnimation("Hydrogen",Hy);
+    H.addImage(Hy);
     H.scale=0.8;
     
     if(mousePressedOver(H)){
-     d.addAnimation("Hydrogen",Hd)
-     Lit.visible=false;
+      d.addImage(Hd)
+      Lit.visible=false;
       d.visible=true;
-  console.log("Hey");
+      console.log("Hey");
   
     }
    var Cross=createSprite(displayWidth/2,displayHeight/6,40,40);
     Cross.visible=false;
-  
-    
+
     Lit=createSprite(displayWidth/11,displayHeight/5);
     Lit.addImage(Li);
     Lit.scale=0.8;
     
-        if(mousePressedOver(Lit)){
-    var sprite=createSprite(displayWidth/2,displayHeight/2,100,100);
+       /* if(mousePressedOver(Lit)){
+        var sprite=createSprite(displayWidth/2,displayHeight/2,100,100);
     
-     d.changeAnimation("background",bg)
-      d.visible=false;
-console.log("Heyy")
+      
+       d.visible=false;
+console.log("Heyy");
          
-        }
+        }*/
       
   
-  /*  if(mousePressedOver(Lit)){
-        Na=Lid;
-        d.visible=true;
-         }*/
-        
+
         Sod=createSprite(displayWidth/11,displayHeight/3.75);
          Sod.addImage(Sodium);
          Sod.scale=0.8;
@@ -852,7 +908,11 @@ Ogna=createSprite(displayWidth/1.223,displayHeight/1.835);
 Ogna.addImage(Og);
 Ogna.scale=0.8;
 
+if(mousePressedOver(Lit)){
+  image(Lid,displayWidth/2,displayHeight/2);
 
+   }
+  
 
     drawSprites();
 
@@ -871,12 +931,13 @@ game = new Game();
    }
    if(gamest==4){
   clear();
-  drawSprites();
+
   game.play();
    }
    if(gamest==5){
      game.end();
    }
+   drawSprites();
  }
 
 }//end of draw function
@@ -885,7 +946,7 @@ game = new Game();
 
 function gamest1(){
     gamest=1;
-    
+    redraw();
 }
 function gamest2(){
     gamest=2;
@@ -893,7 +954,13 @@ function gamest2(){
 }
 function gamest0(){
     gamest=0;
-    
+  // game.style('display','block');
+  //  pertab.style('display','block')
+  //  react.style('display','block');
+  game.show();
+  pertab.show();
+  react.show();
+  
 }
 function gamest3(){
     gamest=3;
