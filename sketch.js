@@ -20,7 +20,7 @@ var box2selected = false;
 var reLoadCompound = false;
 function preload(){
   bg=loadImage("images/bg.png");
-  whitepage=loadImage("images/whitepage1.jpg");
+  whitepage=loadImage("images/whitepage.jpg");
   Na2O=loadImage("images/Na2O.jpg");
 water=loadImage("images/water.gif");
 water2=loadImage("images/H2O.jpg");
@@ -418,7 +418,7 @@ chlo2.y=displayHeight/1.95;
 alum2.y=displayHeight/1.62;
 copper2.y=displayHeight/1.38;
 
-image(whitepage,displayWidth/2,displayHeight/3);
+image(whitepage,displayWidth/4,displayHeight/5);
 
 
 }
@@ -489,11 +489,11 @@ if(sodium.x==Box1.x&&oxygen2.x==Box2.x||(oxygen.x==Box1.x&&sodium2.x==Box2.x)){
  
 }    
 if(copper.x==Box1.x&&oxygen2.x==Box2.x||(copper2.x==Box2.x&&oxygen.x==Box1.x)){
-  image(CuO,displayWidth/4,displayHeight/3);
+  image(CuO,displayWidth/4,displayHeight/5);
   console.log("cuo")
 }  
 if(copper.x==Box1.x&&chlo2.x==Box2.x||(copper2.x==Box2.x&&chlo.x==Box1.x)){
-  image(CuCl2,displayWidth/4,displayHeight/3);
+  image(CuCl2,displayWidth/4,displayHeight/5);
   console.log("cucl2");
 }
 
